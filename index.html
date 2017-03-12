@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/style.css">
 
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -529,6 +531,14 @@
       </div>
     </section>
 
+    <div id="map" style="width: 100%; height: 400px">
+      
+    </div>
+
+    <section id="google">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2819.714783106324!2d39.02726311507416!3d45.03071507909821!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40f04fff00ac6053%3A0xe8e15286351778a3!2z0YPQuy4g0KPRgNCw0LvRjNGB0LrQsNGPLCAzLCDQmtGA0LDRgdC90L7QtNCw0YAsINCa0YDQsNGB0L3QvtC00LDRgNGB0LrQuNC5INC60YDQsNC5LCAzNTAwNTk!5e0!3m2!1sru!2sru!4v1489327369359" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </section>
+
     <footer id="footer">
       <div class="container">
         <div class="row">
@@ -988,5 +998,40 @@
   </script>
 
   <script src="js/parallax.min.js"></script>
+
+
+  <script type="text/javascript">
+//создаем переменные "Карта" и "Метка"
+  ymaps.ready(init);
+  var myMap, 
+  myPlacemark;
+
+//Инициализируем нашу карту, задав ей координаты, устанавливаем масштаб карты
+  function init(){ 
+    myMap = new ymaps.Map("map", {
+      center: [45.030770, 39.029113],
+      zoom: 16,
+    }); 
+
+//Пишем свойства для нашей метки
+    myPlacemark = new ymaps.Placemark([45.030770, 39.029113], {
+      hintContent: 'Мы ждем Вас здесь!',
+      balloonContent: ''
+    }, {
+            // Опции.
+            // Необходимо указать данный тип макета. Показываем что это изображение.
+            iconLayout: 'default#image',
+            // Своё изображение иконки метки. Указываем путь до картинки
+            iconImageHref: 'img/placeholder.png',
+            // Размеры метки. 
+            iconImageSize: [80, 80],
+            // Смещение левого верхнего угла иконки относительно её "ножки" (точки привязки).
+            iconImageOffset: [-26, -80]
+          });            
+    //Добавляем метку на карту + убираем скролл мышкой 
+    myMap.geoObjects.add(myPlacemark);  
+    myMap.behaviors.disable('scrollZoom');
+  }
+</script>
   </body>
 </html>
