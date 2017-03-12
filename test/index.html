@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jquery</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+	<ul class="list">
+		<li class="item" id="item-1">Lorem ipsum dolor.</li>
+		<li class="item" id="item-2">Modi, rem, soluta.</li>
+		<li class="item" id="item-3">Sequi, nobis, veniam?</li>
+		<li class="item" id="item-4">Sed vero, rerum.</li>
+		<li class="item" id="item-5">Ab, perferendis rem.</li>
+	</ul>
+	<span id="link">Нажми на меня</span>
+	<div class="table" id="table">
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem optio commodi laborum nihil hic asperiores at quasi omnis quis nesciunt nisi numquam eos debitis quia repellendus, rerum in harum maiores vel accusantium quos, quisquam. Fugit voluptas dolorem aliquid, quisquam, harum culpa consectetur atque, id temporibus ratione dolore, laborum explicabo iure repudiandae! Nemo sit, odio nihil quam, amet tenetur facere quae laudantium blanditiis deserunt sunt laboriosam modi ullam aut fuga impedit consequatur hic maxime tempore ducimus. Perferendis eligendi, eveniet! Maiores culpa illum voluptatem eaque asperiores voluptate accusantium esse quos nemo perferendis nihil, earum aperiam repellendus maxime, cupiditate cum molestiae necessitatibus praesentium.</p>
+	</div>
+
+	<div class="box">
+		
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			//alert('Сайт загружен');
+			// console.log('Сайт загружен');
+			// $('#item-2').addClass('red');
+			// $('#item-2').click(function() {
+			// 	$(this).css({
+			// 		'background-color' : 'green',
+			// 		'height' : '50px'
+			// 	});
+			// })
+			$('#link').click(function() {
+				$('#table').show('slow');
+			})
+			$('#link').dblclick(function() {
+				$('#table').hide();
+			})
+
+			// $('.box').mouseenter(function() {
+			// 	$(this).addClass('green');
+			// })
+			// $('.box').mouseleave(function() {
+			// 	$(this).removeClass('green');
+			// })
+			var $box = $('.box'),
+				$figure = 50;
+			$box.click(function() {
+				alert($figure);
+			})
+		})
+	</script>
+</body>
+</html>
